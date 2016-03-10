@@ -1,0 +1,28 @@
+{
+  "name": "led-matrix-composer",
+  "description": "Embedded Web UI for controlling an LED Matrix display",
+  "main": "Server.js",
+  "authors": [
+    "Jeremy Werner"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "led",
+    "matrix",
+    "web",
+    "gui",
+    "react"
+  ],
+  "homepage": "https://github.com/jeremymatthewwerner/led-matrix-composer",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-css": "^3.3.6"
+  }
+}
