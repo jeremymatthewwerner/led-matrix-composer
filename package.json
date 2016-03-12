@@ -2,7 +2,7 @@
   "name": "led-matrix-composer",
   "version": "0.0.1",
   "description": "Embedded Web UI for controlling an LED Matrix display",
-  "main": "index.js",
+  "main": "Server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -22,5 +22,18 @@
   "bugs": {
     "url": "https://github.com/jeremymatthewwerner/led-matrix-composer/issues"
   },
-  "homepage": "https://github.com/jeremymatthewwerner/led-matrix-composer#readme"
+  "homepage": "https://github.com/jeremymatthewwerner/led-matrix-composer#readme",
+  "dependencies": {
+    "browserify": "^13.0.0",
+    "express": "^4.13.4",
+    "guid": "0.0.12",
+    "gulp": "^3.9.1",
+    "nedb": "^1.8.0",
+    "react": "^0.14.7",
+    "react-bootstrap": "^0.28.3",
+    "react-dom": "^0.14.7",
+    "react-tabs": "^0.5.3",
+    "reactify": "^1.1.1",
+    "vinyl-source-stream": "^1.1.0"
+  }
 }
