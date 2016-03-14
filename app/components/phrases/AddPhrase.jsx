@@ -1,5 +1,5 @@
 var React = require("react");
-var actions = require("../../actions/PhraseActions");
+var actions = require("../../actions/PhrasesActions");
 
 module.exports = React.createClass({
     getInitialState:function(){
@@ -10,6 +10,7 @@ module.exports = React.createClass({
     },
 
     addPhrase:function(e){
+        console.log('addPhrase')
         e.preventDefault();
         actions.addPhrase(this.state);
     },
@@ -20,6 +21,7 @@ module.exports = React.createClass({
       var state = this.state;
       state[name] = e.target.value;
       this.setState(state);
+      console.log('handleInputChange')
     },
 
     render:function(){
@@ -31,7 +33,7 @@ module.exports = React.createClass({
                 </div>
                 <div className="form-group">
                     <label className="control-label" htmlFor="tagline">Tagline:</label>
-                    <input type="text" className="form-control" id="tagline" name="tagline" value={this.state.address} onChange={this.handleInputChange} placeholder="Phrase" />                    
+                    <input type="text" className="form-control" id="phrase" name="phrase" value={this.state.address} onChange={this.handleInputChange} placeholder="Phrase" />                    
                 </div>
                 <div className="form-group">
                     <button className="btn" type="submit">Add Phrase</button>

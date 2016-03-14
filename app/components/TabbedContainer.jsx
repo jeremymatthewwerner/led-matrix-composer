@@ -1,6 +1,6 @@
 var React = require("react");
-var actions = require("../actions/SchoolActions");
-var SchoolsList = require("./SchoolsList.jsx");
+var actions = require("../actions/PhrasesActions");
+var PhrasesList = require("./phrases/PhrasesList.jsx");
 
 
 module.exports = React.createClass({
@@ -12,9 +12,43 @@ module.exports = React.createClass({
   },
 
   handleClick:function(e) {
-  	console.log(e.currentTarget.id);
   	this.setState({tab: e.currentTarget.id});
   },
+
+ 	sequenceTab:function() {
+		return(
+			<div>Sequences TODO</div>
+		)},
+
+	pagesTab:function() {
+		return(
+			<div>Pages TODO</div>
+		)},
+
+	soundsTab:function() {
+		return(
+			<div>Sounds TODO</div>
+		)},
+
+		imagesTab:function() {
+		return(
+			<div>Images TODO</div>
+		)},
+
+		phrasesTab:function() {
+		return(
+			<div><PhrasesList phrases = {this.props.phrases}/></div>
+		)},
+
+		webSourcesTab:function() {
+		return(
+			<div>Web Sources TODO</div>
+		)},
+
+		shellCmdsTab:function() {
+		return(
+			<div>Shell Commands TODO</div>
+		)},
 
   render:function(){
 		return(
@@ -22,7 +56,6 @@ module.exports = React.createClass({
 			  <div className="navbar">
   				<div className="navbar-inner">
     				<ul className="nav nav-tabs">
-
 							<li className={this.state.tab == 'sequence' ? 'active' : null} role="presentation"><a id="sequence" onClick={this.handleClick} href="#">Sequences</a></li>
 			        <li className={this.state.tab == 'pages' ? 'active' : null} role="presentation"><a id="pages" onClick={this.handleClick} href="#">Pages</a></li>
 			        <li className={this.state.tab == 'sounds' ? 'active' : null} role="presentation"><a id="sounds" onClick={this.handleClick} href="#">Sounds</a></li>
@@ -34,11 +67,21 @@ module.exports = React.createClass({
 				  </div>
 			  </div>
 
-			  <h2>{this.state.tab}</h2>
-			  <SchoolsList schools = {this.props.schools} />
-
+			  {(() => {
+        	switch (this.state.tab) {
+          	case "sequence": 	return this.sequenceTab();
+          	case "pages": 		return this.pagesTab();
+          	case "sounds":  	return this.soundsTab();
+          	case "images": 		return this.imagesTab();
+          	case "phrases": 	return this.phrasesTab();
+          	case "websources":return this.webSourcesTab();
+          	case "shellcmds": return this.shellCmdsTab();
+          	default:      		return "<h1>No Such Tab</h1>"; 
+        	}	
+      	})()}
+			 
 			</div>  
-		)}
+		)},
 });
 
 

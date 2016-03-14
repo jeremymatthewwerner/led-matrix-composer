@@ -1,5 +1,5 @@
 var React = require("react");
-var actions = require("../../actions/PhraseActions");
+var actions = require("../../actions/PhrasesActions");
 
 module.exports = React.createClass({
     deletePhrase: function(e){
@@ -13,7 +13,7 @@ module.exports = React.createClass({
                     {this.props.info.name}
                     <span className="pull-right text-uppercase delete-button" onClick={this.deletePhrase}>&times;</span>
                 </div>
-                <div className="panel-body">{this.props.info.tagline}</div>
+                <div className="panel-body">{this.props.info.phrase}</div>
             </div>
         )
     }

@@ -1,58 +1,58 @@
 var dispatcher = require("../dispatcher");
 
-function SchoolStore() {
+function PhraseStore() {
     var listeners = [];
-    var schools = [{ name: "Hi Sula!", phrase:"Hi Sula!" }, 
+    var phrases = [{ name: "Hi Sula!", phrase:"Hi Sula!" }, 
                     { name: "Hi Milo!",phrase:"Hi Milo!" }];
 
-    function getSchools() {
-        return schools;
+    function getPhrases() {
+        return phrases;
     }
 
     function onChange(listener) {
         listeners.push(listener);
     }
 
-    function addSchool(school) {
-        schools.push(school)
+    function addPhrase(phrase) {
+        phrases.push(phrase)
         triggerListeners();
     }
 
-    function deleteSchool(school) {
+    function deletePhrase(phrase) {
         var _index;
-        schools.map(function (s, index) {
-            if (s.name === school.name) {
+        phrases.map(function (s, index) {
+            if (s.name === phrase.name) {
                 _index = index;
             }
         });
-        schools.splice(_index, 1);
+        phrases.splice(_index, 1);
         triggerListeners();
     }
 
     function triggerListeners() {
         listeners.forEach(function (listener) {
-            listener(schools);
+            listener(phrases);
         });
     }
 
     dispatcher.register(function (payload) {
         var split = payload.type.split(":");
-        if (split[0] === "school") {
+        if (split[0] === "phrase") {
             switch (split[1]) {
-                case "addSchool":
-                    addSchool(payload.school);
+                case "addPhrase":
+                    addPhrase(payload.phrase);
                     break;
-                case "deleteSchool":
-                    deleteSchool(payload.school);
+                case "deletePhrase":
+                    deletePhrase(payload.phrase);
                     break;
             }
         }
     });
 
     return {
-        getSchools: getSchools,
+        getPhrases: getPhrases,
         onChange: onChange
     }
 }
 
-module.exports = SchoolStore();
+module.exports = PhraseStore();

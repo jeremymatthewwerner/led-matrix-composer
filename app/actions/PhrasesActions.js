@@ -1,16 +1,16 @@
 var dispatcher = require("../dispatcher");
 
 module.exports = {
-    addSchool:function(school){
+    addPhrase:function(phrase){
         dispatcher.dispatch({
-           school:school,
-           type:"school:addSchool" 
+           phrase:phrase,
+           type:"phrase:addPhrase" 
         });
     },
-    deleteSchool:function(school){
+    deletePhrase:function(phrase){
         dispatcher.dispatch({
-           school:school,
-           type:"school:deleteSchool" 
+           phrase:phrase,
+           type:"phrase:deletePhrase" 
         });
     }
 }
